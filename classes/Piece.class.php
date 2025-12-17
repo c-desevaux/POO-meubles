@@ -10,15 +10,16 @@
         private int $nbMeuble = 0;
         private array $tabMeuble = [];
 
+
         public function __construct(int $largeur, int $hauteur, int $profondeur, string $nom, int $nbMeubleMax){
 
             parent::__construct($largeur, $hauteur, $profondeur, $nom);
 
             $this->setNbMeubleMax($nbMeubleMax);
             
-
        }
         
+
     //GETTERS
 
        public function getNbMeubleMax(): int{
@@ -49,10 +50,9 @@
        }
 
 
-
     //SETTERS
 
-       private function setNbMeubleMax($nbMeubleMax){
+       private function setNbMeubleMax($nbMeubleMax): void{
 
             if($nbMeubleMax>=0){
                 $this->nbMeubleMax=$nbMeubleMax;
@@ -61,18 +61,16 @@
             }
        }
 
-       private function setNbMeuble($nbMeuble){
-
-            
+       private function setNbMeuble($nbMeuble): void{
+    
             $this->nbMeuble = $nbMeuble;
-      
-            
+        
        }
+
 
     //FUNCTIONS
 
-
-       public function ajouterMeuble(Meuble $meuble){
+       public function ajouterMeuble(Meuble $meuble): void{
 
             if((($this->nbMeuble+1)<=$this->nbMeubleMax) && (($this->getSurfaceLibre()>$meuble->getSurface()) && ($this->getHauteur()>$meuble->getHauteur()))){
                 array_push($this->tabMeuble, $meuble);
@@ -89,8 +87,7 @@
 
         public function affiche(): string{
 
-
-            $infos = "Piece ".$this->getNom()." de dimenssions (L/H/P): ".$this->getLargeur()."m/".$this->getHauteur()."m/".$this->getProfondeur()."m, comportant ".$this->nbMeuble." meuble(s).<br>";
+            $infos = "Piece ".$this->getNom()." de dimenssions (L/H/P): ".$this->getLargeur()."m/".$this->getHauteur()."m/".$this->getProfondeur()."m, comporte ".$this->nbMeuble." meuble(s).<br>";
             return $infos;
 
 

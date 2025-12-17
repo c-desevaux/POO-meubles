@@ -10,7 +10,9 @@
     echo "La surface du bureau est: ".$bureau->getSurface()."m² <br>";
     $bureau2 = new Meuble(2, 2, 1, "Bureau2");
     $chaise = new Meuble(1, 1, 1, "Chaise");
+    $meuble = new Meuble(2, 1, 3, "");
     echo "La surface du chaise est: ".$chaise->getSurface()."m² <br>";
+    echo $meuble->affiche();
 
 
     $tresGrandBureau = new Meuble (10, 1, 10, "Giant Desk");

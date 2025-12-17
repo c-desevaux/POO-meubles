@@ -47,7 +47,7 @@
 
 //SETTERS
 
-        private function setNbPieceMax($nbPieceMax){
+        private function setNbPieceMax($nbPieceMax): void{
 
             if($nbPieceMax>0){
                 $this->nbPieceMax = $nbPieceMax;
@@ -56,7 +56,7 @@
             }
         }
 
-        private function setNbPiece($nbPiece){
+        private function setNbPiece($nbPiece): void{
 
             $this->nbPiece = $nbPiece;
 
@@ -68,7 +68,7 @@
 //FUNCTIONS
 
 
-        public function ajouterPiece(Piece $piece){
+        public function ajouterPiece(Piece $piece): void{
 
 
             if((($this->nbPiece+1)<=$this->nbPieceMax)){
@@ -85,7 +85,7 @@
 
         public function affiche(): string{
 
-            $str = "Le bâtiement situé au ".$this->getAdresse()." et comporte ".$this->getNbPiece()." pièce(s) et on pourait y ajouter ".$this->getNbPiecesLibres()." autre(s) pièce(s). <br>";
+            $str = "Le bâtiement situé au ".$this->getAdresse()." comporte ".$this->getNbPiece()." pièce(s) et on pourait y ajouter ".$this->getNbPiecesLibres()." autre(s) pièce(s). <br>";
             return $str;
 
         }
