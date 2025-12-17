@@ -57,7 +57,7 @@
             if($nbMeubleMax>=0){
                 $this->nbMeubleMax=$nbMeubleMax;
             }else{
-                echo "Le nombre de meuble maximum doit être positif ou nul <br>";
+                echo "Le nombre de meuble maximum doit être positif ou nul. <br>";
             }
        }
 
@@ -74,10 +74,10 @@
 
        public function ajouterMeuble(Meuble $meuble){
 
-            if(($this->nbMeuble<=$this->nbMeubleMax) && (($this->getSurfaceLibre()>$meuble->getSurface()) && ($this->getHauteur()>$meuble->getHauteur()))){
+            if((($this->nbMeuble+1)<=$this->nbMeubleMax) && (($this->getSurfaceLibre()>$meuble->getSurface()) && ($this->getHauteur()>$meuble->getHauteur()))){
                 array_push($this->tabMeuble, $meuble);
-                $this->setNbMeuble(count($this->tabMeuble)+1);
-                echo "Le meuble ".$meuble->getNom()." a bien été ajouté à la pièce ".$this->getNom()."<br>";
+                $this->setNbMeuble(count($this->tabMeuble));
+                echo "Le meuble ".$meuble->getNom()." a bien été ajouté à la pièce ".$this->getNom().".<br>";
 
             }else if(($this->getSurfaceLibre()<$meuble->getSurface()) || ($this->getHauteur()<$meuble->getHauteur())){
                 echo "Les meubles doivent avoir des dimentions plus petites pour rentrer dans la pièce.<br>";
@@ -90,7 +90,7 @@
         public function affiche(): string{
 
 
-            $infos = "Piece ".$this->getNom()." de dimenssions (L/H/P): ".$this->getLargeur()."m/".$this->getHauteur()."m/".$this->getProfondeur()."m, comportant ".$this->nbMeuble." meubles.<br>";
+            $infos = "Piece ".$this->getNom()." de dimenssions (L/H/P): ".$this->getLargeur()."m/".$this->getHauteur()."m/".$this->getProfondeur()."m, comportant ".$this->nbMeuble." meuble(s).<br>";
             return $infos;
 
 
